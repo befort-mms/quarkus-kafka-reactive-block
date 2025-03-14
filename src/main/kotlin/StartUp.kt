@@ -16,6 +16,12 @@ class EagerAppBean {
         GlobalScope.launch {
             producer.sendMessage("input", "not-existent-topic")
         }
+        GlobalScope.launch {
+            producer.sendMessage("input", "not-existent-topic")
+        }
+        GlobalScope.launch {
+            producer.sendMessage("input", "not-existent-topic")
+        }
 
         GlobalScope.launch {
             producer.sendMessage("input", "existent-topic")
