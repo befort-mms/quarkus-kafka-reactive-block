@@ -1,0 +1,24 @@
+mp:
+  messaging:
+    outgoing:
+      kafka-output:
+        connector: smallrye-kafka
+        merge: true
+        acks: all
+        delivery:
+          timeout:
+            ms: 50000 # The configuration defines the total wait time for an acknowledgment from the broker, including retries.
+        max:
+          block:
+            ms: 50000 # The configuration controls how long the KafkaProducer send() method will block.
+        request:
+          timeout:
+            ms: 30000 # The configuration controls how long the client will wait for a response. If timeout was reached the client will resend the request or fail if delivery.timeout.ms is exhausted
+        key:
+          serializer: org.apache.kafka.common.serialization.StringSerializer
+        value:
+          serializer: org.apache.kafka.common.serialization.StringSerializer
+
+kafka:
+  bootstrap:
+    servers: localhost:19092
